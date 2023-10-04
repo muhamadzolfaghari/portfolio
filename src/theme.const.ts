@@ -2,8 +2,6 @@ import { createTheme } from "@mui/material/styles";
 import { faIR } from "@mui/material/locale";
 import { UseMediaQueryOptions } from "@mui/material";
 
-const defaultTheme = createTheme();
-
 const theme = createTheme(
   {
     direction: "rtl",
@@ -48,37 +46,18 @@ const theme = createTheme(
     },
     typography: {
       fontFamily: "Vazir FD WOL UI, Quicksand",
-      h1: {
-        fontSize: "2.7em",
-        fontWeight: defaultTheme.typography.fontWeightBold,
-      },
-      h2: {
-        fontSize: "2em",
-        fontWeight: defaultTheme.typography.fontWeightBold,
-      },
-      h3: {
-        fontSize: "1.5em",
-        fontWeight: defaultTheme.typography.fontWeightBold,
-      },
-      h4: {
-        fontSize: "1.25em",
-        fontWeight: defaultTheme.typography.fontWeightBold,
-      },
-      h5: {
-        fontSize: "1.1em",
-        fontWeight: defaultTheme.typography.fontWeightBold,
-      },
     },
   },
-  faIR
+  faIR,
 );
 
 type ThemeType = typeof theme;
 
 declare module "@mui/material" {
+  // noinspection JSUnusedGlobalSymbols
   function useMediaQuery(
     queryInput: string | ((theme: ThemeType) => string),
-    options?: UseMediaQueryOptions
+    options?: UseMediaQueryOptions,
   ): boolean;
 }
 
