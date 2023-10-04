@@ -1,14 +1,21 @@
 import React from "react";
-import {Box, Grid} from "@mui/material";
+import {Grid, Typography} from "@mui/material";
 
 const App = () => (
-  <Grid container>
-    <Grid item xs={6}>
-        <Box bgcolor={''}>
+  <Grid container height={"inherit"} bgcolor={"#373b40"}>
+    <Grid
+      item
+      xs={6}
+      height={"inherit"}
+      bgcolor={(theme) => theme.palette.primary.main}
+    >
+        <Typography variant={'h1'}>
 
-        </Box>
+        </Typography>
     </Grid>
-    <Grid item xs={6}>test</Grid>
+    <Grid item xs={6}>
+      test
+    </Grid>
   </Grid>
 );
 
