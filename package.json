@@ -1,6 +1,6 @@
 {
-    "name": "mui-example",
-    "version": "4.0.0",
+    "name": "porfolio",
+    "version": "1.0.0",
     "private": true,
     "dependencies": {
         "@emotion/react": "^11.7.1",
