@@ -4,16 +4,7 @@ import React from "react";
 import { StringType } from "../types/ReferenceType";
 
 const AboutMe = ({ str }: { str: StringType }) => (
-  <Section>
-    <Typography variant={"h2"} fontWeight={"bold"}>
-      {str.about_me}
-    </Typography>
-    <Typography
-      fontWeight={"bold"}
-      color={(theme) => theme.palette.primary.main}
-    >
-      {str.my_story}
-    </Typography>
+  <Section title={str.about_me} subtitle={str.my_story}>
     <Typography>{str.description}</Typography>
     <Grid container>
       <Grid item xs>
@@ -32,8 +23,16 @@ const AboutMe = ({ str }: { str: StringType }) => (
         <Typography>muhamad.zolfaghari@gmail.com</Typography>
       </Grid>
     </Grid>
-    <Typography>{str.phone_title}</Typography>
-    <Typography>{str.phone}</Typography>
+    <Grid container>
+      <Grid item xs>
+        <Typography>{str.phone_title}</Typography>
+        <Typography>{str.phone}</Typography>
+      </Grid>
+      <Grid item xs>
+        <Typography>{str.phone_title}</Typography>
+        <Typography>{str.phone}</Typography>
+      </Grid>
+    </Grid>
   </Section>
 );
 
