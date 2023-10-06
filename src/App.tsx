@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   AppBar,
   Box,
@@ -16,11 +16,16 @@ import { useAppDispatch } from "./app/hooks";
 import { languageChanged } from "./features/appSlice";
 import userImage from "./assets/images/new.png";
 import Introduction from "./components/Introduction";
+import AboutMe from "./components/AboutMe";
 
 const App = () => {
   const dispatch = useAppDispatch();
   const { language } = useSelector((state: RootState) => state.app);
   const str = useString(language);
+
+  useEffect(() => {
+    document.body.dir = language === "en" ? "ltr" : "rtl";
+  }, [language]);
 
   function handleLanguage() {
     dispatch(languageChanged(language === "fa" ? "en" : "fa"));
@@ -64,37 +69,9 @@ const App = () => {
           </Stack>
           <Introduction str={str} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
+          <AboutMe str={str} />
           <Stack height={"inherit"} width={"inherit"} p={10} pt={0}>
-            <Typography variant={"h2"} fontWeight={"bold"}>
-              {str.about_me}
-            </Typography>
-            <Typography
-              mb={10}
-              fontWeight={"bold"}
-              color={(theme) => theme.palette.primary.main}
-            >
-              {str.my_story}
-            </Typography>
-            <Grid container>
-              <Grid item xs>
-                <Stack direction={"row"}>
-                  <Typography
-                    fontWeight={"bold"}
-                    color={(theme) => theme.palette.primary.main}
-                  >
-                    {str.address_text}
-                  </Typography>
-                  <Typography>{str.address}</Typography>
-                </Stack>
-              </Grid>
-              <Grid item xs flexDirection={"row"}>
-                <Typography>{str.email}</Typography>
-                <Typography>muhamad.zolfaghari@gmail.com</Typography>
-              </Grid>
-            </Grid>
-            <Typography>{str.phone_title}</Typography>
-            <Typography>{str.phone}</Typography>
-            <Divider color={"#797979"} />
+            <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />{" "}
             <Typography>{str.services}</Typography>
             <Typography>{str.web_development}</Typography>
             <Typography>{str.web_development_description}</Typography>

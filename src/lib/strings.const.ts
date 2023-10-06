@@ -64,8 +64,8 @@ export const STRINGS = {
     en: "Educations",
   },
   introduction: {
-    fa: "سلام! من یک توسعه دهنده مشتاق در حوزه طراحی اپلیکیشن‌های وب هستم. با تکیه بر پشتکار و تخصص کافی درک نیاز یک پروژه را دارم. همچنین یک پژوهش‌گر در زمینه تحلیل کیفیی و بهبود پروژه‌های اجرا شده هستم.",
-    en: "Hi! I am an enthusiastic developer in the field of web application. Relying on a wide range of experience, I'm figuring out project requirements. Furthermore, I am a researcher related to quality investigation and improving launched projects.",
+    fa: "سلام! من یک توسعه دهنده مشتاق در حوزه طراحی اپلیکیشن‌های وب هستم. با داشتن تخصص کافی، توانایی نیازسنجی پروژه‌های حرفه‌ای را دارم. پژوهش‌گر در زمینه تحلیل کیفیی پروژه و نیز بهبود دهنده پروژه‌های اجرا شده هستم. در مراحل اجرای پروژه و نیز پشتیبانی پس آن همراه شما خواهم بود.",
+    en: "Hi! I am an enthusiastic developer in the field of web application. Relying on previous experiences, I'm able needs assessments project. Furthermore, I am a researcher related to quality investigation and improving launched projects. While launching the project and supporting after that, I am available for helps.",
   },
 };
 
