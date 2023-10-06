@@ -2,6 +2,8 @@ import { createTheme } from "@mui/material/styles";
 import { faIR } from "@mui/material/locale";
 import { UseMediaQueryOptions } from "@mui/material";
 
+const defaultTheme = createTheme();
+
 const theme = createTheme(
   {
     direction: "rtl",
@@ -45,7 +47,27 @@ const theme = createTheme(
       },
     },
     typography: {
-      fontFamily: "Vazir FD WOL UI, Quicksand",
+      fontFamily: "Comfortaa, Vazirmatn, serif",
+      h1: {
+        fontSize: 65,
+        // fontWeight: defaultTheme.typography.fontWeightBold,
+      },
+      h2: {
+        fontSize: 45,
+        // fontWeight: defaultTheme.typography.fontWeightBold,
+      },
+      h3: {
+        fontSize: 25,
+        // fontWeight: defaultTheme.typography.fontWeightBold,
+      },
+      h4: {
+        // fontSize: "1.25em",
+        // fontWeight: defaultTheme.typography.fontWeightBold,
+      },
+      h5: {
+        // fontSize: "1.1em",
+        // fontWeight: defaultTheme.typography.fontWeightBold,
+      },
     },
   },
   faIR,
