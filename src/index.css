@@ -1,5 +1,25 @@
 @import "~vazirmatn/Vazirmatn-font-face.css";
+@import "~@fontsource/comfortaa";
 
 html, body, #root {
     height: 100%
 }
+
+body {
+    font-family: Vazirmatn, Comfortaa, serif;
+}
+
+@keyframes mouse-anim {
+    0% {
+        top: -5px;
+    }
+
+    50% {
+        top: 5px;
+    }
+
+    100% {
+        top: -5px;
+    }
+}
+
