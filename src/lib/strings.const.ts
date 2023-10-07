@@ -23,7 +23,7 @@ export const STRINGS = {
     fa: "داستان من",
     en: "My Story",
   },
-  address_text: {
+  address_title: {
     fa: "آدرس",
     en: "Address",
   },

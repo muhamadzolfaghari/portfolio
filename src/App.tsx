@@ -17,6 +17,7 @@ import { languageChanged } from "./features/appSlice";
 import userImage from "./assets/images/new.png";
 import Introduction from "./components/Introduction";
 import AboutMe from "./components/AboutMe";
+import Services from "./components/Services";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -70,11 +71,10 @@ const App = () => {
           <Introduction str={str} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
           <AboutMe str={str} />
+          <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
+          <Services str={str} />
+          <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
           <Stack height={"inherit"} width={"inherit"} p={10} pt={0}>
-            <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />{" "}
-            <Typography>{str.services}</Typography>
-            <Typography>{str.web_development}</Typography>
-            <Typography>{str.web_development_description}</Typography>
             <Typography variant={"h3"} fontWeight={"bold"}>
               {str.experiences}
             </Typography>
