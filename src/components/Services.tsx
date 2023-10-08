@@ -20,7 +20,7 @@ const Item = ({
 }) => (
   <Stack>
     {icon}
-    <Typography variant={"h3"} fontWeight={"bold"} gutterBottom>
+    <Typography variant={"h3"} fontWeight={"bold"} mb={2}>
       {title}
     </Typography>
     <Typography>{content}</Typography>
@@ -48,10 +48,8 @@ const Services = ({ str }: { str: StringType }) => (
         <Item
           title={
             <>
-              توسعه دهنده سامانه‌های مبتنی بر نقشه (GIS)
-              <Tooltip
-                title={"تولید، پردازش، تحلیل و مدیریت اطلاعات جغرافیایی"}
-              >
+              {str.maps_app_development}
+              <Tooltip title={str.gis_definition}>
                 <HelpTwoToneIcon
                   sx={{ color: (theme) => theme.palette.primary.main }}
                 />

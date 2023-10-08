@@ -67,6 +67,14 @@ export const STRINGS = {
     fa: "سلام! من یک توسعه دهنده مشتاق در حوزه طراحی اپلیکیشن‌های وب هستم. با داشتن تخصص کافی، توانایی نیازسنجی پروژه‌های حرفه‌ای را دارم. پژوهش‌گر در زمینه تحلیل کیفیی پروژه و نیز بهبود دهنده پروژه‌های اجرا شده هستم. در مراحل اجرای پروژه و نیز پشتیبانی پس آن همراه شما خواهم بود.",
     en: "Hi! I am an enthusiastic developer in the field of web application. Relying on previous experiences, I'm able needs assessments project. Furthermore, I am a researcher related to quality investigation and improving launched projects. While launching the project and supporting after that, I am available for helps.",
   },
+  gis_definition: {
+    fa: "ساخت، پردازش، تجزیه و تحلیل و مدیریت اطلاعات جغرافیایی",
+    en: "Building, processing, analysing, and managing the geographical information",
+  },
+  maps_app_development: {
+    fa: "توسعه دهنده سامانه‌های مبتنی بر نقشه (GIS)",
+    en: 'Maps Application Development'
+  }
 };
 
 export const STRING_KEYS = Object.keys(STRINGS) as (keyof typeof STRINGS)[];
