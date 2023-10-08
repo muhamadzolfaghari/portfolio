@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import {
-  AppBar,
-  Box,
-  Divider,
-  Fab,
-  Grid,
-  Stack,
-  Toolbar,
-  Typography,
+    AppBar,
+    Box, Button,
+    Divider,
+    Grid,
+    Stack,
+    Toolbar,
+    Typography,
 } from "@mui/material";
 import useString from "./hooks/useString";
 import { useSelector } from "react-redux";
@@ -36,53 +35,27 @@ const App = () => {
     <>
       <AppBar
         sx={{
-          backgroundColor: "#373b40",
+          backgroundColor: "#585d65",
           top: 40,
           left: 40,
           right: 40,
+          p: 1.5,
           borderRadius: 40,
         }}
       >
         <Toolbar>
-          <Box>
-            <Fab onClick={handleLanguage}>{language}</Fab>
-          </Box>
+            <Button
+              onClick={handleLanguage}
+              color={"primary"}
+              variant={"outlined"}
+              size={"small"}
+              sx={{ height: 50, borderRadius: "50%", maxWidth: 50, p: 0}}
+            >
+              {language === "fa" ? "en" : "fa"}
+            </Button>
         </Toolbar>
       </AppBar>
       <Grid container height={"inherit"}>
-        <Grid item xs={6} bgcolor={"#373b40"} pt={14} zIndex={2}>
-          <Stack
-            textAlign={"right"}
-            bgcolor={"inherit"}
-            borderRadius={50}
-            mr={-20}
-            p={9}
-            fontWeight={"bold"}
-            width={"fit-content"}
-            ml={"auto"}
-          >
-            <Typography variant={"h1"} fontWeight={"bold"}>
-              {str.name}
-            </Typography>
-            <Typography variant={"h1"} fontWeight={"bold"}>
-              {str.family}
-            </Typography>
-          </Stack>
-          <Introduction str={str} />
-          <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <AboutMe str={str} />
-          <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <Services str={str} />
-          <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <Stack height={"inherit"} width={"inherit"} p={10} pt={0}>
-            <Typography variant={"h3"} fontWeight={"bold"}>
-              {str.experiences}
-            </Typography>
-            <Typography variant={"h3"} fontWeight={"bold"}>
-              {str.educations}
-            </Typography>
-          </Stack>
-        </Grid>
         <Grid
           item
           xs={6}
@@ -105,12 +78,45 @@ const App = () => {
                 filter: "grayscale(100%)",
                 backgroundRepeat: "no-repeat",
                 backgroundPositionX: "10%",
-                backgroundSize: "contain",
+                backgroundSize: "cover",
                 mixBlendMode: "luminosity",
                 backgroundImage: `url(${userImage})`,
               }}
             />
           </Box>
+        </Grid>
+        <Grid item xs={6} bgcolor={"#373b40"} pt={14} zIndex={2}>
+          <Stack
+            textAlign={language === "en" ? "right" : "left"}
+            bgcolor={"inherit"}
+            borderRadius={50}
+            ml={language === "en" ? "auto" : -20}
+            mr={language === "en" ? -20 : "auto"}
+            p={9}
+            fontWeight={"bold"}
+            width={"fit-content"}
+          >
+            <Typography variant={"h1"} fontWeight={"bold"}>
+              {str.name}
+            </Typography>
+            <Typography variant={"h1"} fontWeight={"bold"}>
+              {str.family}
+            </Typography>
+          </Stack>
+          <Introduction str={str} />
+          <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
+          <AboutMe str={str} />
+          <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
+          <Services str={str} />
+          <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
+          <Stack height={"inherit"} width={"inherit"} p={10} pt={0}>
+            <Typography variant={"h3"} fontWeight={"bold"}>
+              {str.experiences}
+            </Typography>
+            <Typography variant={"h3"} fontWeight={"bold"}>
+              {str.educations}
+            </Typography>
+          </Stack>
         </Grid>
       </Grid>
     </>
