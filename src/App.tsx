@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import {
-    AppBar,
-    Box, Button,
-    Divider,
-    Grid,
-    Stack,
-    Toolbar,
-    Typography,
+  AppBar,
+  Box,
+  Button,
+  Divider,
+  Grid,
+  Stack,
+  Toolbar,
+  Typography,
 } from "@mui/material";
 import useString from "./hooks/useString";
 import { useSelector } from "react-redux";
@@ -44,15 +45,15 @@ const App = () => {
         }}
       >
         <Toolbar>
-            <Button
-              onClick={handleLanguage}
-              color={"primary"}
-              variant={"outlined"}
-              size={"small"}
-              sx={{ height: 50, borderRadius: "50%", maxWidth: 50, p: 0}}
-            >
-              {language === "fa" ? "en" : "fa"}
-            </Button>
+          <Button
+            onClick={handleLanguage}
+            color={"primary"}
+            variant={"outlined"}
+            size={"small"}
+            sx={{ height: 50, borderRadius: "50%", maxWidth: 50, p: 0 }}
+          >
+            {language === "fa" ? "en" : "fa"}
+          </Button>
         </Toolbar>
       </AppBar>
       <Grid container height={"inherit"}>

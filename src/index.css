@@ -1,5 +1,5 @@
-@import "~vazirmatn/Vazirmatn-font-face.css";
-@import "~@fontsource/comfortaa";
+@import "vazirmatn/Vazirmatn-font-face.css";
+@import "@fontsource/comfortaa";
 
 html, body, #root {
     height: 100%
