@@ -18,6 +18,7 @@ import userImage from "./assets/images/new.png";
 import Introduction from "./components/Introduction";
 import AboutMe from "./components/AboutMe";
 import Services from "./components/Services";
+import Experiences from "./components/Experiences";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -110,14 +111,7 @@ const App = () => {
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
           <Services str={str} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <Stack height={"inherit"} width={"inherit"} p={10} pt={0}>
-            <Typography variant={"h3"} fontWeight={"bold"}>
-              {str.experiences}
-            </Typography>
-            <Typography variant={"h3"} fontWeight={"bold"}>
-              {str.educations}
-            </Typography>
-          </Stack>
+          <Experiences str={str} />
         </Grid>
       </Grid>
     </>

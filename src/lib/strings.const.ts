@@ -73,8 +73,32 @@ export const STRINGS = {
   },
   maps_app_development: {
     fa: "توسعه دهنده سامانه‌های مبتنی بر نقشه (GIS)",
-    en: 'Maps Application Development'
-  }
+    en: "Maps Application Development",
+  },
+  working_with: {
+    fa: "کار کردن با",
+    en: "Working With",
+  },
+  frontend_developer_lead: {
+    fa: "مدیر فرانت‌اند",
+    en: "Frontend Developer Lead",
+  },
+  frontend_developer_lead_descriptions: {
+    fa: [
+      "شرکت داشتن در تحلیل عملی بودن پروژه‌های جدید",
+      "انتخاب ابزارها و روش‌های مناسب جهت توسعه",
+      "بررسی، ارزیابی و آماده‌سازی پروژه‌های برنامه نویسی، از جمله کدگذاری، ارزیابی، شناسایی اشکالات و افزودن وظایف برای یک پروژه در مقیاس بزرگ",
+      "کمک به مشتریان در حل مشکلات و یافتن راه حل در کوتاه ترین زمان ممکن و بر طرف کردن آن حین فرایند تولید نرم‌افزار",
+      "ارائه آموزش به عنوان یک مربی و منتور برای توسعه دهندگان با تجربه کمتر تعیین وظایف مناسب تر در صورت لزوم",
+    ],
+    en: [
+      "Take part in the practicability analysis for new projects",
+      "Select appropriate tools and methodologies",
+      "Review, evaluate, and adjust programming systems, including coding, evaluating, identifying bugs, and executing installation tasks for a large-scale system",
+      "Help customers with technical problems, solve problems quickly, and fix problems in the production process",
+      "Serve as a coach and mentor for less experienced developers, assigning tasks as necessary",
+    ],
+  },
 };
 
 export const STRING_KEYS = Object.keys(STRINGS) as (keyof typeof STRINGS)[];
