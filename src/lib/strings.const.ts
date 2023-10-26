@@ -57,11 +57,11 @@ export const STRINGS = {
   },
   job_experiences: {
     fa: "سوابق کاری",
-    en: "Experiences",
+    en: "WorkExperiences",
   },
   education_experiences: {
     fa: "سوابق تحصیلی",
-    en: "Experiences",
+    en: "WorkExperiences",
   },
   study_in: {
     fa: "تحصیل در",

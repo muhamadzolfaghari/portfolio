@@ -7,7 +7,7 @@ import userImage from "../assets/images/new.png";
 import Introduction from "../components/Introduction.tsx";
 import AboutMe from "../components/AboutMe.tsx";
 import Services from "../components/Services.tsx";
-import Experiences from "../components/Experiences.tsx";
+import WorkExperiences from "../components/WorkExperiences.tsx";
 import Header from "../components/Header.tsx";
 import Educations from "../components/Educations.tsx";
 
@@ -76,7 +76,7 @@ function Home() {
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
           <Services R={R} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <Experiences />
+          <WorkExperiences />
           <Educations />
         </Grid>
       </Grid>

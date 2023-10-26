@@ -2,7 +2,7 @@ import parsimapLogo from "../assets/images/parsimap-logo.png";
 import freelanceLogo from "../assets/images/freelance.png";
 import IDatum from "../interfaces/IDatum.ts";
 
-const EXPERIENCES: IDatum[] = [
+const WORK_EXPERIENCES: IDatum[] = [
   {
     img: parsimapLogo,
     title: "frontend_developer_lead",
@@ -41,4 +41,4 @@ const EXPERIENCES: IDatum[] = [
 ];
 
 
-export default EXPERIENCES;
+export default WORK_EXPERIENCES;
