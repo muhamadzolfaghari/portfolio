@@ -1,10 +1,13 @@
 import { useMemo } from "react";
 import { STRING_KEYS, STRINGS } from "../lib/strings.const";
-import { LanguageType } from "../types/LanguageType";
 import { StringType } from "../types/ReferenceType";
+import { useSelector } from "react-redux";
+import { RootState } from "../app/store.ts";
 
-const useString = (language: LanguageType): StringType =>
-  useMemo(
+function useStringReference(): StringType {
+  const { language } = useSelector((state: RootState) => state.app);
+
+  return useMemo(
     () =>
       STRING_KEYS.reduce(
         (prev, cur) => ({
@@ -15,5 +18,6 @@ const useString = (language: LanguageType): StringType =>
       ),
     [language],
   );
+}
 
-export default useString;
+export default useStringReference;

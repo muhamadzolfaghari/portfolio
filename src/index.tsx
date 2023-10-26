@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import theme from "./theme.const";
 import RTL from "./Theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import App from "./App";
+import Home from "./pages/Home.tsx";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
@@ -18,7 +18,7 @@ root.render(
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <RTL>
-          <App />
+          <Home />
         </RTL>
       </ThemeProvider>
     </Provider>
