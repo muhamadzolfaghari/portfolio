@@ -1,6 +1,8 @@
-import Section from "./Section";
-import Typography, { typographyClasses } from "@mui/material/Typography";
+import useStringReference from "../hooks/useStringReference.ts";
+import Section from "./Section.tsx";
+import IDatum from "../interfaces/IDatum.ts";
 import Stack from "@mui/material/Stack";
+import Typography, { typographyClasses } from "@mui/material/Typography";
 import {
   alpha,
   Box,
@@ -10,79 +12,81 @@ import {
   ListItemText,
 } from "@mui/material";
 import { CircleOutlined } from "@mui/icons-material";
-import { useSelector } from "react-redux";
-import { RootState } from "../app/store.ts";
-import useStringReference from "../hooks/useStringReference.ts";
-import EXPERIENCES from "../lib/experiences.ts";
-import IDatum from "../interfaces/IDatum.ts";
+import DateRange from "./DateRange.tsx";
 
-const getStringDate = (date: string, language: string) =>
-  new Date(date).toLocaleDateString(language, {
-    year: "numeric",
-    month: "short",
-  });
+interface IProps {
+  title: string;
+  subtitle: string;
+  data: IDatum[];
+}
 
-function DateRange({
-  startDate,
-  endDate,
-}: {
-  startDate: string;
-  endDate: string;
-}) {
-  const { language } = useSelector((state: RootState) => state.app);
+function Item({ title, startDate, endDate, description, img }: IDatum) {
+  const R = useStringReference();
 
   return (
-    <Stack
-      position={"absolute"}
-      dir={"ltr"}
-      direction={"row"}
-      sx={{
-        transform: "rotate(270deg)",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-        mr: -4,
-        ml: -4,
-        " p": {
-          fontSize: 12,
-        },
-      }}
-    >
-      <Typography
-        sx={{
-          lineHeight: 1,
-          color: (theme) => theme.palette.primary.main,
-        }}
+    <Stack position="relative" mb={8}>
+      <Stack
+        direction={"row"}
+        mb={2}
+        position={"relative"}
+        overflow={"hidden"}
+        alignItems={"center"}
       >
-        {language === "fa" ? endDate : getStringDate(startDate, language)}
-      </Typography>
-      <Typography
-        pr={0.5}
-        pl={0.5}
-        sx={{
-          color: (theme) => theme.palette.primary.main,
-        }}
-      >
-        {language === "fa" ? " تا " : " - "}
-      </Typography>
-      <Typography
-        sx={{
-          color: (theme) => theme.palette.primary.main,
-        }}
-      >
-        {language === "fa" ? startDate : getStringDate(endDate, language)}
-      </Typography>
+        <DateRange startDate={startDate} endDate={endDate} />
+        <Stack
+          direction={"row"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Typography variant={"h3"} fontWeight={"bold"} maxWidth={240}>
+            {R[title]}
+          </Typography>
+          <Stack
+            bgcolor={(theme) => alpha(theme.palette.primary.main, 0.25)}
+            borderRadius={20}
+            height={50}
+            width={50}
+            alignItems={"center"}
+            justifyContent={"center"}
+          >
+            <Box component={"img"} src={img} width={30} />
+          </Stack>
+        </Stack>
+      </Stack>
+      <List disablePadding>
+        {R[description].split("\n").map((desc, index) => (
+          <ListItem key={index} disableGutters sx={{ pb: 0.25, pt: 0.25 }}>
+            <ListItemAvatar
+              sx={{
+                minWidth: "unset",
+                pr: 1,
+                display: "flex",
+                alignItems: "center",
+                color: (theme) => theme.palette.primary.main,
+              }}
+            >
+              <CircleOutlined sx={{ fontSize: 15 }} />
+            </ListItemAvatar>
+            <ListItemText
+              sx={{
+                [`.${typographyClasses.body1}`]: {
+                  fontSize: 14,
+                },
+              }}
+            >
+              {desc}
+            </ListItemText>
+          </ListItem>
+        ))}
+      </List>
     </Stack>
   );
 }
 
-
-export default function Experiences() {
-  const R = useStringReference();
-
+export default function Experiences({ title, subtitle, data }: IProps) {
   return (
-    <Section title={R.experiences} subtitle={R.working_with}>
-      {EXPERIENCES.map((datum, index) => (
+    <Section title={title} subtitle={subtitle}>
+      {data.map((datum, index) => (
         <Item {...datum} key={index} />
       ))}
     </Section>

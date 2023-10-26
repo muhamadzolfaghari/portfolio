@@ -55,13 +55,17 @@ export const STRINGS = {
     fa: "توسعه آپلیکشین سمت وب",
     en: "Creating progressive web application",
   },
-  experiences: {
+  job_experiences: {
     fa: "سوابق کاری",
-    en: "Experiences",
+    en: "WorkExperiences",
   },
-  educations: {
+  education_experiences: {
     fa: "سوابق تحصیلی",
-    en: "Educations",
+    en: "WorkExperiences",
+  },
+  study_in: {
+    fa: "تحصیل در",
+    en: "Study in",
   },
   introduction: {
     fa: "سلام! من یک توسعه دهنده مشتاق در حوزه طراحی اپلیکیشن‌های وب هستم. با داشتن تخصص کافی، توانایی نیازسنجی پروژه‌های حرفه‌ای را دارم. پژوهش‌گر در زمینه تحلیل کیفیی پروژه و نیز بهبود دهنده پروژه‌های اجرا شده هستم. در مراحل اجرای پروژه و نیز پشتیبانی پس آن همراه شما خواهم بود.",
