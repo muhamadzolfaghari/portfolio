@@ -13,18 +13,15 @@ import {
 import { LanguageType } from "../types/LanguageType";
 import { CircleOutlined } from "@mui/icons-material";
 import parsimapLogo from "../assets/images/parsimap-logo.png";
-
-
-
-const num = 12;
-
-
+import freelanceLogo from "../assets/images/freelance.png";
+import { useSelector } from "react-redux";
+import { RootState } from "../app/store.ts";
 
 interface IDatum {
   img: string;
   title: string;
-  startDate: string;
   endDate: string;
+  startDate: string;
   description: string;
 }
 
@@ -57,74 +54,87 @@ const getData = (language: LanguageType, R: StringType): IDatum[] => [
     description: R.mid_level_frontend_developer_description,
   },
   {
-    img: parsimapLogo,
+    img: freelanceLogo,
     title: R.joiner_full_stack_developer,
     startDate: getDateString(language, "2013-5"),
     endDate: getDateString(language, "2016-10"),
     description: R.joiner_full_stack_developer_description,
   },
-  // {
-  //   img: '',
-  //   title: R.mid
-  // }
+  {
+    img: freelanceLogo,
+    title: R.joiner_full_stack_developer,
+    startDate: getDateString(language, "2015-1"),
+    endDate: getDateString(language, "2015-5"),
+    description: R.joiner_full_stack_developer_fam_description,
+  },
 ];
 
-const Item = ({
+function DateRange({
   startDate,
-  title,
   endDate,
-  description,
-  language,
-  img,
-}: IDatum & {
-  language: LanguageType;
-}) => (
+}: {
+  startDate: string;
+  endDate: string;
+}) {
+  const { language } = useSelector((state: RootState) => state.app);
+
+  return (
+    <Stack
+      position={"absolute"}
+      dir={"ltr"}
+      direction={"row"}
+      sx={{
+        transform: "rotate(270deg)",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        mr: -4,
+        ml: -4,
+        " p": {
+          fontSize: 12,
+        },
+      }}
+    >
+      <Typography
+        sx={{
+          lineHeight: 1,
+          color: (theme) => theme.palette.primary.main,
+        }}
+      >
+        {language === "fa" ? endDate : startDate}
+      </Typography>
+      <Typography
+        pr={0.5}
+        pl={0.5}
+        sx={{
+          color: (theme) => theme.palette.primary.main,
+        }}
+      >
+        {language === "fa" ? " تا " : " - "}
+      </Typography>
+      <Typography
+        sx={{
+          color: (theme) => theme.palette.primary.main,
+        }}
+      >
+        {language === "fa" ? startDate : endDate}
+      </Typography>
+    </Stack>
+  );
+}
+
+const Item = ({ title, startDate, endDate, description, img }: IDatum) => (
   <Stack position="relative" mb={8}>
-    <Stack direction={"row"} mb={2}>
-      <Stack direction={"row"}>
-        <Stack
-          dir={"ltr"}
-          direction={"row"}
-          sx={{
-            transform: "rotate(270deg)",
-            alignItems: "center",
-            justifyContent: "center",
-            overflow: "hidden",
-            mr: -4,
-            ml: -4,
-            " p": {
-              fontSize: 12,
-            },
-          }}
-        >
-          <Typography
-            sx={{
-              lineHeight: 1,
-              color: (theme) => theme.palette.primary.main,
-            }}
-          >
-            {language === "fa" ? endDate : startDate}
-          </Typography>
-          <Typography
-            pr={0.5}
-            pl={0.5}
-            sx={{
-              color: (theme) => theme.palette.primary.main,
-            }}
-          >
-            {language === "fa" ? " تا " : " - "}
-          </Typography>
-          <Typography
-            sx={{
-              color: (theme) => theme.palette.primary.main,
-            }}
-          >
-            {language === "fa" ? startDate : endDate}
-          </Typography>
-        </Stack>
-      </Stack>
+    <Stack
+      direction={"row"}
+      mb={2}
+      position={"relative"}
+      overflow={"hidden"}
+      alignItems={"center"}
+    >
+      <DateRange startDate={startDate} endDate={endDate} />
       <Stack direction={"row"} justifyContent={"center"} alignItems={"center"}>
-        <Typography variant={"h3"} fontWeight={"bold"} maxWidth={270}>
+        <Typography variant={"h3"} fontWeight={"bold"} maxWidth={240}>
           {title}
         </Typography>
         <Stack
@@ -178,7 +188,7 @@ export default function Experiences({
   return (
     <Section title={R.experiences} subtitle={R.working_with}>
       {getData(language, R).map((datum, index) => (
-        <Item {...datum} key={index} language={language} />
+        <Item {...datum} key={index} />
       ))}
     </Section>
   );

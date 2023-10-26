@@ -147,6 +147,16 @@ export const STRINGS = {
       Implementing apps to show hardware information considers the Battery and the signal level for Android
       Development of a voice recorder for Android`,
   },
+  joiner_full_stack_developer_fam_description: {
+    fa: `جرای پروژه های مربوط به فروشگاه اینترنتی بر اساس فریم ورک لاراول PHP
+      توسعه و حل مشکلات سمت مشتری در پروژه های اجرا شده و نوشتن افزونه های وردپرس برای ادغام با فروشگاه
+      توسعه و تجزیه و تحلیل پایگاه های داده و نوشتن روش های نظرسنجی و محرک ها
+      توسعه پلتفرمی برای خرید آنلاین بلیط با استفاده از AngularJS`,
+    en: `Implementation of projects related to the online store based on the Laravel PHP framework
+      Develop and resolve client-side problems in implemented projects and write WordPress plugins to integrate with the store
+      Develop and analyse databases and write survey procedures and triggers
+      Development of a platform to buy tickets online using the AngularJS`,
+  },
   coaching_and_teaching: {
     fa: "مشاوره و آموزش",
     en: "Coaching and Teaching",
