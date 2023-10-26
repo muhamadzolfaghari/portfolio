@@ -1,26 +1,17 @@
 import { useEffect } from "react";
-import {
-  AppBar,
-  Box,
-  Button,
-  Divider,
-  Grid,
-  Stack,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import useString from "./hooks/useString";
+import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
+import useString from "../hooks/useString.ts";
 import { useSelector } from "react-redux";
-import { RootState } from "./app/store";
-import { useAppDispatch } from "./app/hooks";
-import { languageChanged } from "./features/appSlice";
-import userImage from "./assets/images/new.png";
-import Introduction from "./components/Introduction";
-import AboutMe from "./components/AboutMe";
-import Services from "./components/Services";
-import Experiences from "./components/Experiences";
+import { RootState } from "../app/store.ts";
+import { useAppDispatch } from "../app/hooks.ts";
+import userImage from "../assets/images/new.png";
+import Introduction from "../components/Introduction.tsx";
+import AboutMe from "../components/AboutMe.tsx";
+import Services from "../components/Services.tsx";
+import Experiences from "../components/Experiences.tsx";
+import Header from "../components/Header.tsx";
 
-const App = () => {
+function Home() {
   const dispatch = useAppDispatch();
   const { language } = useSelector((state: RootState) => state.app);
   const R = useString(language);
@@ -29,34 +20,9 @@ const App = () => {
     document.body.dir = language === "en" ? "ltr" : "rtl";
   }, [language]);
 
-  function handleLanguage() {
-    dispatch(languageChanged(language === "fa" ? "en" : "fa"));
-  }
-
   return (
     <>
-      <AppBar
-        sx={{
-          backgroundColor: "#585d65",
-          top: 40,
-          left: 40,
-          right: 40,
-          p: 1.5,
-          borderRadius: 40,
-        }}
-      >
-        <Toolbar>
-          <Button
-            onClick={handleLanguage}
-            color={"primary"}
-            variant={"outlined"}
-            size={"small"}
-            sx={{ height: 50, borderRadius: "50%", maxWidth: 50, p: 0 }}
-          >
-            {language === "fa" ? "en" : "fa"}
-          </Button>
-        </Toolbar>
-      </AppBar>
+      <Header />
       <Grid container height={"inherit"}>
         <Grid
           item
@@ -116,6 +82,6 @@ const App = () => {
       </Grid>
     </>
   );
-};
+}
 
-export default App;
+export default Home;
