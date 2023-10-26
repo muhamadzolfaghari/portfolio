@@ -76,7 +76,7 @@ export const STRINGS = {
     en: "Maps Application Development",
   },
   working_with: {
-    fa: "کار کردن با",
+    fa: "همکاری با",
     en: "Working With",
   },
   frontend_developer_lead: {

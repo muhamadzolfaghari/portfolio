@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
-import useString from "../hooks/useString.ts";
+import useStringReference from "../hooks/useStringReference.ts";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store.ts";
 import { useAppDispatch } from "../app/hooks.ts";
@@ -12,9 +12,8 @@ import Experiences from "../components/Experiences.tsx";
 import Header from "../components/Header.tsx";
 
 function Home() {
-  const dispatch = useAppDispatch();
   const { language } = useSelector((state: RootState) => state.app);
-  const R = useString(language);
+  const R = useStringReference(language);
 
   useEffect(() => {
     document.body.dir = language === "en" ? "ltr" : "rtl";
@@ -77,7 +76,7 @@ function Home() {
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
           <Services R={R} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <Experiences R={R} language={language} />
+          <Experiences />
         </Grid>
       </Grid>
     </>

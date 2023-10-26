@@ -1,7 +1,12 @@
 import { AppBar, Button, Toolbar } from "@mui/material";
 import { languageChanged } from "../features/appSlice.ts";
+import { useAppDispatch } from "../app/hooks.ts";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const dispatch = useAppDispatch();
+  const { language } = useSelector((state: RooteState) => state.app);
+
   function handleLanguage() {
     dispatch(languageChanged(language === "fa" ? "en" : "fa"));
   }
