@@ -1,6 +1,5 @@
 import useStringReference from "../hooks/useStringReference.ts";
 import Section from "./Section.tsx";
-import EXPERIENCES from "../lib/experiences.ts";
 import IDatum from "../interfaces/IDatum.ts";
 import Stack from "@mui/material/Stack";
 import Typography, { typographyClasses } from "@mui/material/Typography";
@@ -13,6 +12,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import { CircleOutlined } from "@mui/icons-material";
+import DateRange from "./DateRange.tsx";
 
 interface IProps {
   title: string;
@@ -83,12 +83,10 @@ function Item({ title, startDate, endDate, description, img }: IDatum) {
   );
 }
 
-export default function Experiences({ title, subtitle, data }: IProps) {
-  const R = useStringReference();
-
+export default function Profession({ title, subtitle, data }: IProps) {
   return (
-    <Section title={title} subtitle={subttiel}>
-      {EXPERIENCES.map((datum, index) => (
+    <Section title={title} subtitle={subtitle}>
+      {data.map((datum, index) => (
         <Item {...datum} key={index} />
       ))}
     </Section>

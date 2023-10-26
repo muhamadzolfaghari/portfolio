@@ -3,13 +3,13 @@ import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import useStringReference from "../hooks/useStringReference.ts";
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store.ts";
-import { useAppDispatch } from "../app/hooks.ts";
 import userImage from "../assets/images/new.png";
 import Introduction from "../components/Introduction.tsx";
 import AboutMe from "../components/AboutMe.tsx";
 import Services from "../components/Services.tsx";
 import Experiences from "../components/Experiences.tsx";
 import Header from "../components/Header.tsx";
+import Profession from "../components/Profession.tsx";
 
 function Home() {
   const { language } = useSelector((state: RootState) => state.app);
@@ -77,6 +77,7 @@ function Home() {
           <Services R={R} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
           <Experiences />
+
         </Grid>
       </Grid>
     </>
