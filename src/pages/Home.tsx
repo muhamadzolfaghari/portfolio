@@ -9,7 +9,7 @@ import AboutMe from "../components/AboutMe.tsx";
 import Services from "../components/Services.tsx";
 import Experiences from "../components/Experiences.tsx";
 import Header from "../components/Header.tsx";
-import Profession from "../components/Profession.tsx";
+import Educations from "../components/Educations.tsx";
 
 function Home() {
   const { language } = useSelector((state: RootState) => state.app);
@@ -77,7 +77,7 @@ function Home() {
           <Services R={R} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
           <Experiences />
-
+          <Educations />
         </Grid>
       </Grid>
     </>

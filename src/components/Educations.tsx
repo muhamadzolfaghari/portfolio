@@ -1,15 +1,15 @@
 import useStringReference from "../hooks/useStringReference.ts";
 import Profession from "./Profession.tsx";
-import EXPERIENCES from "../lib/experiences.ts";
+import EDUCATIONS from "../lib/educations.ts";
 
-export default function Experiences() {
+export default function Educations() {
   const R = useStringReference();
 
   return (
     <Profession
-      data={EXPERIENCES}
-      title={R.job_experiences}
-      subtitle={R.working_with}
+      data={EDUCATIONS}
+      title={R.education_experiences}
+      subtitle={R.study_in}
     />
   );
 }
