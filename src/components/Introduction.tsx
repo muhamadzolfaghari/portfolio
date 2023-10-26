@@ -1,19 +1,18 @@
 import { Button, Typography } from "@mui/material";
 import { ArrowBackIos } from "@mui/icons-material";
-import React from "react";
 import { StringType } from "../types/ReferenceType";
 import Section from "./Section";
 
-const Introduction = ({ str }: { str: StringType }) => (
+const Introduction = ({ R }: { R: StringType }) => (
   <Section>
     <Typography
       gutterBottom
       variant={"h2"}
       color={(theme) => theme.palette.primary.main}
     >
-      {str.software_engineering}
+      {R.software_engineering}
     </Typography>
-    <Typography>{str.introduction}</Typography>
+    <Typography>{R.introduction}</Typography>
     <Button
       variant={"outlined"}
       sx={{ height: 75, width: 75, borderRadius: "50%" }}

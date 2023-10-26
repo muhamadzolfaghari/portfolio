@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import {
   AppBar,
   Box,
@@ -23,7 +23,7 @@ import Experiences from "./components/Experiences";
 const App = () => {
   const dispatch = useAppDispatch();
   const { language } = useSelector((state: RootState) => state.app);
-  const str = useString(language);
+  const R = useString(language);
 
   useEffect(() => {
     document.body.dir = language === "en" ? "ltr" : "rtl";
@@ -99,19 +99,19 @@ const App = () => {
             width={"fit-content"}
           >
             <Typography variant={"h1"} fontWeight={"bold"}>
-              {str.name}
+              {R.name}
             </Typography>
             <Typography variant={"h1"} fontWeight={"bold"}>
-              {str.family}
+              {R.family}
             </Typography>
           </Stack>
-          <Introduction str={str} />
+          <Introduction R={R} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <AboutMe str={str} />
+          <AboutMe R={R} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <Services str={str} />
+          <Services R={R} />
           <Divider color={"#797979"} sx={{ mt: 10, mb: 10 }} />
-          <Experiences str={str} />
+          <Experiences R={R} language={language} />
         </Grid>
       </Grid>
     </>

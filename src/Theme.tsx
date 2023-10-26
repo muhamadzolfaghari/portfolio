@@ -1,5 +1,5 @@
 import createCache from "@emotion/cache";
-import React, { PropsWithChildren } from "react";
+import { PropsWithChildren } from "react";
 import { CacheProvider } from "@emotion/react";
 import rtlPlugin from "stylis-plugin-rtl";
 

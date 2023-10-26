@@ -2,8 +2,6 @@ import { createTheme } from "@mui/material/styles";
 import { faIR } from "@mui/material/locale";
 import { UseMediaQueryOptions } from "@mui/material";
 
-const defaultTheme = createTheme();
-
 const theme = createTheme(
   {
     direction: "rtl",
@@ -47,17 +45,17 @@ const theme = createTheme(
       },
     },
     typography: {
-      fontFamily: "Comfortaa, Vazirmatn, serif",
+      fontFamily: "Comfortaa, Vazirmatn UI, serif",
       h1: {
-        fontSize: 65,
+        fontSize: 72,
         // fontWeight: defaultTheme.typography.fontWeightBold,
       },
       h2: {
-        fontSize: 45,
+        fontSize: 55,
         // fontWeight: defaultTheme.typography.fontWeightBold,
       },
       h3: {
-        fontSize: 25,
+        fontSize: 40,
         // fontWeight: defaultTheme.typography.fontWeightBold,
       },
       h4: {
