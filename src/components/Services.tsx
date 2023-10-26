@@ -27,13 +27,13 @@ const Item = ({
   </Stack>
 );
 
-const Services = ({ str }: { str: StringType }) => (
-  <Section title={str.services} subtitle={"کاری که انجام میدهم"}>
+const Services = ({ R }: { R: StringType }) => (
+  <Section title={R.services} subtitle={"کاری که انجام میدهم"}>
     <Grid container spacing={2}>
       <Grid item sm={6}>
         <Item
-          title={str.web_development}
-          content={str.web_development_description}
+          title={R.web_development}
+          content={R.web_development_description}
           icon={
             <DevicesIcon
               sx={{
@@ -48,8 +48,8 @@ const Services = ({ str }: { str: StringType }) => (
         <Item
           title={
             <>
-              {str.maps_app_development}
-              <Tooltip title={str.gis_definition}>
+              {R.maps_app_development}
+              <Tooltip title={R.gis_definition}>
                 <HelpTwoToneIcon
                   sx={{ color: (theme) => theme.palette.primary.main }}
                 />
@@ -85,8 +85,8 @@ const Services = ({ str }: { str: StringType }) => (
       </Grid>
       <Grid item sm={6}>
         <Item
-          title={"منتورینگ"}
-          content={"تست"}
+          title={R.coaching_and_teaching}
+          content={R.coaching_and_teaching_description}
           icon={
             <SchoolIcon
               sx={{

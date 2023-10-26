@@ -1,4 +1,4 @@
-@import "vazirmatn/Vazirmatn-font-face.css";
+@import "vazirmatn/misc/UI/Vazirmatn-UI-font-face.css";
 @import "@fontsource/comfortaa";
 
 html, body, #root {
@@ -6,7 +6,7 @@ html, body, #root {
 }
 
 body {
-    font-family: Vazirmatn, Comfortaa, serif;
+    font-family: Vazirmatn UI, Comfortaa, serif;
 }
 
 @keyframes mouse-anim {
