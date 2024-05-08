@@ -172,3 +172,28 @@ export const STRINGS = {
 };
 
 export const STRING_KEYS = Object.keys(STRINGS) as (keyof typeof STRINGS)[];
+
+
+
+
+// Create a message handler function
+const createMessageHandler = (source, time) => {
+  const handleMessage = (event) => {
+    if (source === event.data.source && time === event.data.time) {
+      console.log("sfdsf")
+      window.removeEventListener("message", handleMessage);
+    }
+  };
+
+  return handleMessage;
+};
+
+// Get the current timestamp
+const time = Date.now();
+
+// Set up the message handler
+const handleMessage = createMessageHandler("log", time);
+window.addEventListener("message", handleMessage);
+
+// Unsubscribe from listening for specific events by posting the target time
+window.postMessage({ source: "log", time });
