@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 font-sans">
@@ -20,6 +22,27 @@ export default function Home() {
           teams and projects.
         </p>
       </div>
+      <div className="flx flex-col space-y-4"></div>
+      <div className="flex flex-row space-x-4 justify-center items-center relative w-fit">
+        <div className="justify-center items-center ">
+          <div className="flex flex-row items-center space-x-2">
+            <div className="border-4 border-gray-300 border-radius rounded-full p-4 bg-green-600"></div>
+          </div>
+          <div className="absolute left-0 top-10 h-full flex flex-row space-x-2 align-items-end">
+            <div className="w-4 h-2 border-l-4"></div>
+            <div className="border-solid border-4 border-gray-200 h-8 absolute w-8 top-1 border-t-transparent border-r-transparent rounded-bl-3xl"></div>
+          </div>
+        </div>
+        <div>
+          <div>NAK Telecom</div>
+          <div className="text-nowrap	font-bold h-fit mt-6 pl-2x">
+            Senior Frontend Engineer
+          </div>
+        </div>
+      </div>
+      {/* <div>NAK Telecom</div> */}
+      {/* <div>Senior   Frontend Engineer</div> */}
     </main>
   );
 }
+// https://dribbble.com/shots/23179554-Clean-and-Minimal-Resume-Design-Peerlist-Profile

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      // Create a function to measure the execution time of a given function
+      function measureExecutionTime(func, description) {
+        const startTime = performance.now();
+        func();
+        const endTime = performance.now();
+        console.log(
+          `Execution time for ${description}: ${
+            endTime - startTime
+          } milliseconds`
+        );
+      }
+
+      // Example CPU-intensive function
+      function cpuIntensiveTask() {
+        let sum = 0;
+        for (let index = 0; index < 1e8; index++) {
+          sum += index;
+        }
+        return sum;
+      }
+
+      async function gpuIntensiveTask() {
+        const inputData = new Float32Array(1e8);
+        // Fill the array with your numbers
+        const adapter = await navigator.gpu.requestAdapter();
+        if (!adapter) {
+          throw new Error("Failed to request a GPU adapter.");
+        }
+
+        const device = await adapter.requestDevice();
+        if (!device) {
+          throw new Error("Failed to request a GPU device.");
+        }
+
+        const queue = device.createQueue();
+        if (!queue) {
+          throw new Error("Failed to create a GPU command queue.");
+        }
+
+        const inputBuffer = device.createBuffer({
+          size: inputData.byteLength,
+          usage: WebGPUBufferUsage.STORAGE | WebGPUBufferUsage.COPY_DST,
+        });
+
+        device.queue.writeBuffer(inputBuffer, 0, inputData);
+
+        const computeShaderSource = `
+  [[group(0), binding(0)]] var<uniform> input: array<f32>;
+  [[group(0), binding(1)]] var<storage, write> output: array<f32>;
+
+  fn main() {
+    let sum = 0.0f32;
+    for (var i = 0; i < 100000000; ++i) {
+      sum += input[i];
+    }
+    output[0] = sum;
+  }
+`;
+
+        const resultBuffer = device.createBuffer({
+          size: WebGPUBuffer.SIZEOF_FLOAT32,
+          usage: WebGPUBufferUsage.STORAGE | WebGPUBufferUsage.COPY_SRC,
+        });
+
+        const computePipelineLayout = device.createPipelineLayout({
+          bindGroupLayout: device.createBindGroupLayout({
+            label: 0,
+            binding: 0,
+            visibility: WebGPUShaderStage.COMPUTE,
+            buffer: {
+              type: WebGPUBufferBindingType.UNIFORM,
+              hasDynamicOffset: false,
+              minBindingSize: inputBuffer.size,
+            },
+          }),
+          bindGroupLayout: device.createBindGroupLayout({
+            label: 0,
+            binding: 1,
+            visibility: WebGPUShaderStage.COMPUTE,
+            buffer: {
+              type: WebGPUBufferBindingType.STORAGE_BUFFER,
+              hasDynamicOffset: false,
+              minBindingSize: resultBuffer.size,
+            },
+          }),
+        });
+
+        const computePipeline = device.createComputePipeline({
+          computeStage: {
+            module: device.createShaderModule({ code: computeShaderSource }),
+            entryPoint: "main",
+          },
+          layout: computePipelineLayout,
+        });
+
+        const encoder = device.createCommandEncoder();
+        encoder.dispatch(computePipeline, 1);
+        const commandBuffer = encoder.finish();
+        queue.submit([commandBuffer]);
+
+        const resultArray = new Float32Array(1);
+        queue.copyBufferToBuffer(
+          resultBuffer,
+          0,
+          resultArray.buffer,
+          0,
+          WebGPUBuffer.SIZEOF_FLOAT32
+        );
+
+        const sum = resultArray[0];
+      }
+
+      // Measure execution time for the CPU-intensive function
+      measureExecutionTime(gpuIntensiveTask, "GPU-intensive task");
+      measureExecutionTime(cpuIntensiveTask, "CPU-intensive task");
+    </script>
+  </body>
+</html>
