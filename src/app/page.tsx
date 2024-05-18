@@ -23,14 +23,14 @@ export default function Home() {
         </p>
       </div>
       <div className="flx flex-col space-y-4"></div>
-      <div className="flex flex-row space-x-4 justify-center items-center relative w-fit">
-        <div className="justify-center items-center ">
+      <div className="flex flex-row space-x-4 justify-center items-center w-fit">
+        <div className="justify-center items-center flex flex-row relative">
           <div className="flex flex-row items-center space-x-2">
             <div className="border-4 border-gray-300 border-radius rounded-full p-4 bg-green-600"></div>
           </div>
-          <div className="absolute left-0 top-10 h-full flex flex-row space-x-2 align-items-end">
-            <div className="w-4 h-2 border-l-4"></div>
-            <div className="border-solid border-4 border-gray-200 h-8 absolute w-8 top-1 border-t-transparent border-r-transparent rounded-bl-3xl"></div>
+          <div className="absolute left-0 top-10 h-full flex flex-col align-items-end w-8">
+            <div className="w-4 h-2 border-l-4 w-full"></div>
+            <div className="border-solid border-4 border-gray-200 h-8 top-1 border-t-transparent w-full border-r-transparent rounded-bl-3xl"></div>
           </div>
         </div>
         <div>
