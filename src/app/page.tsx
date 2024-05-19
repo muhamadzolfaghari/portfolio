@@ -1,4 +1,27 @@
+import Experience from "./Experience";
+
 export default function Home() {
+  const experiences: Experience[] = [
+    {
+      companyTitle: "Company A",
+      role: "Senior Frontend Developer",
+      startDate: "2015-01-01",
+      endDate: "Present",
+      city: "New York",
+      contractType: "full-time",
+      country: "USA",
+    },
+    {
+      companyTitle: "Company B",
+      role: "Fronten Developer",
+      startDate: "2020-01-01",
+      endDate: "2022-12-31",
+      city: "London",
+      contractType: "part-time",
+      country: "UK",
+    },
+  ];
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 font-sans">
       <h1 className="text-4xl font-bold">Mohammad Zolfaghari</h1>
@@ -20,7 +43,9 @@ export default function Home() {
           teams and projects.
         </p>
       </div>
-
+      {experiences.map((experience) => (
+        <Experience {...experience} key={experience.companyTitle} />
+      ))}
       {/* <div>NAK Telecom</div> */}
       {/* <div>Senior   Frontend Engineer</div> */}
     </main>
