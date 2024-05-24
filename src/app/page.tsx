@@ -1,4 +1,6 @@
 import Experience from "./Experience";
+import pic from "./pic.jpg";
+import Image from "next/image";
 
 export default function Home() {
   const experiences: Experience[] = [
@@ -13,7 +15,7 @@ export default function Home() {
     },
     {
       companyTitle: "Company B",
-      role: "Fronten Developer",
+      role: "Frontend Developer",
       startDate: "2020-01-01",
       endDate: "2022-12-31",
       city: "London",
@@ -24,7 +26,41 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 font-sans">
+      <nav className="w-full bg-opacity-35 bg-gray-700 rounded-full p-2 border-1 border-white">
+        <div className="flex justify-between">
+          <button className="bg-green-600 px-5 py-3 rounded-full">Home</button>
+          <div className="hidden md:flex">
+            <button className="bg-green-600 px-5 py-3 rounded-full">
+              Experience
+            </button>
+            <button className="bg-green-600 px-5 py-3 rounded-full">
+              Contact
+            </button>
+          </div>
+          <div className="flex justify-center">
+            {/* <img
+              src="/your_logo_path_here.png"
+              alt="Your Logo"
+              width={80}
+              height={80}
+              className="max-w-20 md:hidden"
+            /> */}
+          </div>
+          <div className="hidden md:flex">
+            <button className="bg-green-600 px-5 py-3 rounded-full">
+              <i className="fa fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </nav>
       <h1 className="text-4xl font-bold">Mohammad Zolfaghari</h1>
+      <Image
+        src={pic}
+        alt={"My pictuere"}
+        width={200}
+        height={200}
+        className="rounded-full"
+      />
       <div className="font-sans text-xl text-gray-700">
         <p>
           Passionate and results-driven, I am a Senior Front-End Developer with
