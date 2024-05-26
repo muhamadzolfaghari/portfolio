@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource-variable/quicksand": "^5.0.18",
     "@fontsource/comfortaa": "^5.0.20",
-    "next": "14.2.3",
+    "next": "^14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "sharp": "^0.33.4",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {

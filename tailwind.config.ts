@@ -9,8 +9,8 @@ const config: Config = {
   ],
   theme: {
     fontFamily: {
-      display: ['"Comfortaa"', ...defaultTheme.fontFamily.sans],
-      body: ['"Comfortaa"', ...defaultTheme.fontFamily.sans],
+      display: ['"Quicksand Variable"', ...defaultTheme.fontFamily.sans],
+      body: ['"Quicksand Variable"', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       backgroundImage: {
@@ -19,7 +19,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        sans: ["Comfortaa", ...defaultTheme.fontFamily.sans],
+        sans: ["Quicksand Variable", ...defaultTheme.fontFamily.sans],
       },
     },
   },
